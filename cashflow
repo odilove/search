@@ -1,0 +1,20 @@
+python
+class CashFlowStatement:
+    def __init__(self):
+        self.operating_cash_flows = 0
+        self.investing_cash_flows = 0
+        self.financing_cash_flows = 0
+        
+    def get_net_cash_flows(self):
+        return (self.operating_cash_flows + self.investing_cash_flows + 
+                self.financing_cash_flows)
+                
+    # 添加各种现金流量        
+    def add_operating_cash_flows(self, amount):
+        self.operating_cash_flows += amount
+        
+    def add_investing_cash_flows(self, amount):
+        self.investing_cash_flows += amount 
+        
+    def add_financing_cash_flows(self, amount):
+        self.financing_cash_flows += amount
