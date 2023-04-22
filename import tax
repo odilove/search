@@ -1,0 +1,12 @@
+python
+sales_tax_rate = 0.1
+purchase_tax_rate = 0.05
+
+def get_sales_tax(sales_amount):
+    return sales_amount * sales_tax_rate
+
+def get_purchase_tax(purchase_amount):
+    return purchase_amount * purchase_tax_rate
+  
+sales_tax = get_sales_tax(100)  # 10 
+purchase_tax = get_purchase_tax(80) # 4
