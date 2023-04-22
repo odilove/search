@@ -1,0 +1,49 @@
+python
+# 资产负债表类
+class BalanceSheet:
+    def __init__(self, assets=0, liabilities=0):
+        self.assets = assets
+        self.liabilities = liabilities
+        
+    def net_worth(self):
+        return self.assets - self.liabilities
+    
+    def add_assets(self, amount):
+        self.assets += amount
+        
+    def add_liabilities(self, amount):
+        self.liabilities += amount
+        
+# 利润表类        
+class IncomeStatement:
+    def __init__(self, revenues=0, expenses=0):
+        self.revenues = revenues
+        self.expenses = expenses
+        
+    def profit(self):
+        return self.revenues - self.expenses
+    
+    def add_revenues(self, amount):
+        self.revenues += amount
+        
+    def add_expenses(self, amount):
+        self.expenses += amount
+        
+# 实例化资产负债表和利润表        
+balance_sheet = BalanceSheet(10000, 5000) 
+income_statement = IncomeStatement(20000, 15000)
+
+# 添加资产和负债
+balance_sheet.add_assets(2000)
+balance_sheet.add_liabilities(1000)
+
+# 添加收入和费用  
+income_statement.add_revenues(5000) 
+income_statement.add_expenses(2000)  
+
+# 计算净资产和利润
+net_worth = balance_sheet.net_worth()
+profit = income_statement.profit()
+
+print(f'净资产: {net_worth}')
+print(f'利润: {profit}')
