@@ -1,0 +1,51 @@
+python
+class GeneralLedger:
+    def __init__(self):
+        self.accounts = {}
+        
+    def open_account(self, name, balance=0):
+        self.accounts[name] = balance
+        
+    def get_balance(self, name):
+        return self.accounts[name]
+    
+    def deposit(self, name, amount):
+        self.accounts[name] += amount
+        
+    def withdraw(self, name, amount):
+        self.accounts[name] -= amount
+        
+    def transfer(self, from_acct, to_acct, amount):
+        self.withdraw(from_acct, amount)
+        self.deposit(to_acct, amount)
+        
+    def close_account(self, name):
+        del self.accounts[name]
+        
+# 实例化总账        
+gl = GeneralLedger()
+
+# 打开几个账户        
+gl.open_account('销售收入')
+gl.open_account('成本开销') 
+gl.open_account('工资薪酬')
+gl.open_account('银行存款')
+
+# 进行 some 交易记录        
+gl.deposit('销售收入', 10000)  
+gl.withdraw('成本开销', 5000)  
+gl.withdraw('工资薪酬', 3000)
+gl.transfer('银行存款', '工资薪酬', 2000) 
+
+# 获取账户余额和利润
+sales_rev = gl.get_balance('销售收入')  
+cost_exp = gl.get_balance('成本开销')  
+wage_exp = gl.get_balance('工资薪酬') 
+bank_bal = gl.get_balance('银行存款')  
+profit = sales_rev - cost_exp - wage_exp 
+
+print(f'销售收入: {sales_rev}')  
+print(f'成本开销: {cost_exp}')  
+print(f'工资薪酬: {wage_exp}')
+print(f'银行存款: {bank_bal}')  
+print(f'利润: {profit}')
